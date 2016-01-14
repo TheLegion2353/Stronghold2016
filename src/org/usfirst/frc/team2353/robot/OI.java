@@ -1,12 +1,18 @@
 package org.usfirst.frc.team2353.robot;
 
+import edu.wpi.first.wpilibj.AnalogTrigger;
+import edu.wpi.first.wpilibj.AnalogTriggerOutput;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 import org.usfirst.frc.team2353.robot.commands.ExampleCommand;
 import java.util.*;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
+
 public class OI {
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
@@ -35,5 +41,24 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	//Test
+	
+	private Joystick xboxController;
+	
+	private Button AButton;
+	private Button BButton;
+	
+	private AnalogTrigger analog1;
+	private AnalogTrigger analog2;
+	
+	public void init()
+	{
+		xboxController = new Joystick(0);
+		
+		AButton = new JoystickButton(xboxController, 0);
+		BButton = new JoystickButton(xboxController, 1);
+		
+		analog1 = new AnalogTrigger(1);
+		analog2 = new AnalogTrigger(2);
+	}
 }
 
