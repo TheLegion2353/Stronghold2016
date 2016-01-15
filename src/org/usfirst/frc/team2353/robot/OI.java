@@ -1,10 +1,12 @@
 package org.usfirst.frc.team2353.robot;
 
+//Libraries
 import edu.wpi.first.wpilibj.AnalogTrigger;
-import edu.wpi.first.wpilibj.AnalogTriggerOutput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+//Packages
 import org.usfirst.frc.team2353.robot.commands.ExampleCommand;
 
 public class OI {
@@ -14,8 +16,8 @@ public class OI {
 	private Button AButton;
 	private Button YButton;
 	
-	private AnalogTrigger analog1;
-	private AnalogTrigger analog2;
+	private Button triggerButtonLeft;
+	private Button triggerButtonRight;
 	
 	//Directions
 	private double leftTred;
@@ -28,8 +30,8 @@ public class OI {
 		AButton = new JoystickButton(xboxController, 0);
 		YButton = new JoystickButton(xboxController, 3);
 		
-		analog1 = new AnalogTrigger(1);
-		analog2 = new AnalogTrigger(2);
+		triggerButtonLeft = new JoystickButton(xboxController, 6);
+		triggerButtonRight = new JoystickButton(xboxController, 5);
 	}
 	
 	public void main()
