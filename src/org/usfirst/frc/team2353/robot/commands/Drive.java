@@ -12,12 +12,11 @@ import edu.wpi.first.wpilibj.GenericHID;
  */
 public class Drive extends Command {
 
-	GenericHID leftStick, rightStick;
-    public Drive (GenericHID leftStick, GenericHID rightStick) {
+	
+    public Drive () {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.chassis);
-        this.leftStick=leftStick;
-        this.rightStick=rightStick;
+        
     }
 
     // Called just before this Command runs the first time
@@ -27,7 +26,7 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Robot.chassis.moveWithJoystick(leftStick, rightStick);
+    	Robot.chassis.tankDrive(.5,.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()

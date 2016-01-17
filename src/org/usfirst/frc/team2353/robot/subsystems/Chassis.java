@@ -22,7 +22,7 @@ public class Chassis extends Subsystem {
 	private Victor backRightMotor;
 	private RobotDrive drive;
 	
-	public void Chassis() {
+	public Chassis() {
 		frontLeftMotor=new Victor(0);
     	frontRightMotor=new Victor(1);
     	backLeftMotor=new Victor(2);
@@ -38,13 +38,13 @@ public class Chassis extends Subsystem {
     	
     }
     
-//  public void moveWithJoystick(GenericHID leftStick, GenericHID rightStick) {
-//  	drive.tankDrive(leftStick, rightStick);
-//  }
-    
     public void tankDrive(double left, double right) {
     	drive.tankDrive(left,right);
     }
+    
+    
+    
+    
     
 }
 

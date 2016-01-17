@@ -14,6 +14,7 @@ public abstract class CommandBase extends Command {
 	public static Chassis drive;
 	
 	public static void init() {
+		
 		oi = new OI();
 		
 	}

@@ -24,7 +24,7 @@ public class OI {
 	private double leftSpeed;
 	private double rightSpeed;
 	
-	public void init() {
+	public OI() {
 		xboxController = new Joystick(1);
 		
 		AButton = new JoystickButton(xboxController, 0);
@@ -34,11 +34,6 @@ public class OI {
 		triggerButtonRight = new JoystickButton(xboxController, 5);
 	}
 	
-	//CHange to constructor?
-	public void main() {
-		//AButton.whileHeld(new elvDown());
-		//YButton.whileHeld(new elvUp());
-	}
 	
 	public double getLeftValue() {
 		leftSpeed = xboxController.getRawAxis(1); //left analog stick Y Axis
