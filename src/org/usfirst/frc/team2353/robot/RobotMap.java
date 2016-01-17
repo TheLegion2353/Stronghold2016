@@ -5,6 +5,9 @@ package org.usfirst.frc.team2353.robot;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
+
+//We need to use this to map the ports so we can have easier control over them n stuff
+
 public class RobotMap {
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.

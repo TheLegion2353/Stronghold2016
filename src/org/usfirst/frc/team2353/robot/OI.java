@@ -6,8 +6,9 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team2353.robot.commands.Drive;
 //Packages
-import org.usfirst.frc.team2353.robot.commands.ExampleCommand;
+//import org.usfirst.frc.team2353.robot.commands.ExampleCommand;
 
 public class OI {
 	
@@ -20,12 +21,11 @@ public class OI {
 	private Button triggerButtonRight;
 	
 	//Directions
-	private double leftTred;
-	private double rightTred;
+	private double leftSpeed;
+	private double rightSpeed;
 	
-	public void init()
-	{
-		xboxController = new Joystick(0);
+	public void init() {
+		xboxController = new Joystick(1);
 		
 		AButton = new JoystickButton(xboxController, 0);
 		YButton = new JoystickButton(xboxController, 3);
@@ -34,20 +34,26 @@ public class OI {
 		triggerButtonRight = new JoystickButton(xboxController, 5);
 	}
 	
-	public void main()
-	{
+	//CHange to constructor?
+	public void main() {
 		//AButton.whileHeld(new elvDown());
 		//YButton.whileHeld(new elvUp());
+	}
+	
+	public double getLeftValue() {
+		leftSpeed = xboxController.getRawAxis(1); //left analog stick Y Axis
+		if(leftSpeed > -.2 && leftSpeed < .2)
+			leftSpeed = 0;
 		
-		leftTred = xboxController.getRawAxis(1); //left analog stick Y Axis
-		rightTred = xboxController.getRawAxis(4); //right analog stick Y Axis
+		return leftSpeed;
+	}
+	
+	public double getRightValue() {
+		rightSpeed = xboxController.getRawAxis(4); //right analog stick Y Axis
+		if(rightSpeed > -.2 && rightSpeed < .2)
+			rightSpeed = 0;
 		
-		if(leftTred > -.2 && leftTred < .2)
-			leftTred = 0;
-		if(rightTred > -.2 && rightTred < .2)
-			rightTred = 0;
-
-		new ExampleCommand();
+		return rightSpeed;
 	}
 }
 
