@@ -3,8 +3,6 @@ package org.usfirst.frc.team2353.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-//Packages
-//import org.usfirst.frc.team2353.robot.commands.ExampleCommand;
 
 public class OI {
 	
