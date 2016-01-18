@@ -1,12 +1,8 @@
 package org.usfirst.frc.team2353.robot;
 
-//Libraries
-import edu.wpi.first.wpilibj.AnalogTrigger;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
-import org.usfirst.frc.team2353.robot.commands.Drive;
 //Packages
 //import org.usfirst.frc.team2353.robot.commands.ExampleCommand;
 
