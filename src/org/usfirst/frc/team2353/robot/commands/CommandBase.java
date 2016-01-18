@@ -6,7 +6,9 @@ import org.usfirst.frc.team2353.robot.subsystems.Chassis;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * All Commands should extend this class
+ * We should create subsystem objects here whenever so we can import 
+ * them to any command without having to import the subsystem class each time
  */
 public abstract class CommandBase extends Command {
 

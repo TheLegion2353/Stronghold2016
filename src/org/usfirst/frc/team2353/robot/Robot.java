@@ -5,9 +5,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-//import org.usfirst.frc.team2353.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2353.robot.subsystems.Chassis;
-//import org.usfirst.frc.team2353.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -21,6 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	//I don't think we need to create this object as it should never need to be used here (in the commands we just use the command base to use the subsytem objects)
 	public static final Chassis chassis = new Chassis();
 	
 	public static OI oi;

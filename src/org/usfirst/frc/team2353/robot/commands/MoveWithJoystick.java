@@ -7,6 +7,8 @@ import org.usfirst.frc.team2353.robot.Robot;
  */
 public class MoveWithJoystick extends CommandBase {
 
+	//Here we should ahve it require drive because this class extends commandBase where we initialized the chassis subsystem right?
+	
     public MoveWithJoystick() {
         requires(Robot.chassis);
     }
