@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Retrieve extends CommandBase {
+public class Retrieve extends Command {
 
     public Retrieve() {
         // Use requires() here to declare subsystem dependencies
