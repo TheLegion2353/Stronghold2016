@@ -19,7 +19,7 @@ public class OI {
 	private double rightSpeed;
 	
 	public OI() {
-		xboxController = new Joystick(1);
+		xboxController = new Joystick(0);
 		
 		AButton = new JoystickButton(xboxController, 0);
 		YButton = new JoystickButton(xboxController, 3);
@@ -38,7 +38,7 @@ public class OI {
 	}
 	
 	public double getRightValue() {
-		rightSpeed = xboxController.getRawAxis(4); //right analog stick Y Axis
+		rightSpeed = xboxController.getRawAxis(5); //right analog stick Y Axis
 		if(rightSpeed > -.2 && rightSpeed < .2)
 			rightSpeed = 0;
 		
