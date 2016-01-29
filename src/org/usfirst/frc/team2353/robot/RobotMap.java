@@ -10,8 +10,8 @@ package org.usfirst.frc.team2353.robot;
 
 public class RobotMap {
    
-    public static int leftMotor = 1;
-    public static int rightMotor = 2;
+    public static int frontLeftNum = 2, rearLeftNum = 1, frontRightNum = 4, rearRightNum = 3;
+    		
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:

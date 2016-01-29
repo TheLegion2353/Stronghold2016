@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+import org.usfirst.frc.team2353.robot.RobotMap;
 import org.usfirst.frc.team2353.robot.commands.MoveWithJoystick;
 
 /**
@@ -21,10 +22,10 @@ public class Chassis extends Subsystem {
 	private RobotDrive drive;
 	
 	public Chassis() {
-		frontLeftMotor=new Victor(0);
-    	frontRightMotor=new Victor(1);
-    	backLeftMotor=new Victor(2);
-    	backRightMotor=new Victor(3);
+		frontLeftMotor=new Victor(RobotMap.frontLeftNum);
+    	frontRightMotor=new Victor(RobotMap.frontRightNum);
+    	backLeftMotor=new Victor(RobotMap.rearLeftNum);
+    	backRightMotor=new Victor(RobotMap.rearRightNum);
     	drive=new RobotDrive(frontLeftMotor,backLeftMotor, frontRightMotor,backRightMotor);
 	}
 	
@@ -37,7 +38,8 @@ public class Chassis extends Subsystem {
     }
     
     public void tankDrive(double left, double right) {
-    	drive.tankDrive(left,right);
+    	drive.tankDrive(-left,-right);
+    	
     }
     
     
