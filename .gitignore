@@ -12,3 +12,4 @@
 hs_err_pid*
 *.class
 bin/org/usfirst/frc/team2353/robot/Robot.class
+bin/
