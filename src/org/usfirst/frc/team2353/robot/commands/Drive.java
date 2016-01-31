@@ -24,7 +24,7 @@ public class Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.chassis.tankDrive(.5,.5);
+    	Robot.chassis.arcadeDrive(.5,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

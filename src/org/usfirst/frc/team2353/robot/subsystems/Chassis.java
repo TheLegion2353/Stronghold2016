@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.usfirst.frc.team2353.robot.RobotMap;
-import org.usfirst.frc.team2353.robot.commands.MoveWithJoystick;
+import org.usfirst.frc.team2353.robot.commands.DriveArcade;
 
 /**
  *
@@ -33,12 +33,12 @@ public class Chassis extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	
-    	setDefaultCommand(new MoveWithJoystick());
+    	setDefaultCommand(new DriveArcade());
     	
     }
     
-    public void tankDrive(double left, double right) {
-    	drive.tankDrive(-left,-right);
+    public void arcadeDrive(double moveValue, double rotateValue) {
+    	drive.arcadeDrive(moveValue, rotateValue);
     	
     }
     

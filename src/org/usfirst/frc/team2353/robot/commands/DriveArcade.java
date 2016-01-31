@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class MoveWithJoystick extends Command {
+public class DriveArcade extends Command {
 
 	//Here we should have it require drive because this class extends commandBase where we initialized the chassis subsystem right?
 	
-    public MoveWithJoystick() {
+    public DriveArcade() {
         requires(Robot.chassis);
     }
 
@@ -21,7 +21,7 @@ public class MoveWithJoystick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.chassis.tankDrive(Robot.oi.getLeftValue(), Robot.oi.getRightValue());
+    	Robot.chassis.arcadeDrive(Robot.oi.getJoystickY(), Robot.oi.getJoystickX());
     }
 
     // Make this return true when this Command no longer needs to run execute()
