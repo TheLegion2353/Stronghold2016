@@ -2,7 +2,6 @@ package org.usfirst.frc.team2353.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
 	
@@ -11,8 +10,8 @@ public class OI {
 	private Button AButton;
 	private Button YButton;
 	
-	private Button triggerButtonLeft;
-	private Button triggerButtonRight;
+	private boolean rightBumper;
+	private boolean leftBumper;
 	
 	//Directions
 	private double leftSpeed;
@@ -39,6 +38,21 @@ public class OI {
 			rightSpeed = 0;
 		
 		return rightSpeed;
+	}
+	
+	public double getBumper(){
+		rightBumper = xboxController.getRawButton(RobotMap.right_Bumper);
+		if(rightBumper == true) {
+			return 0.5;
+		}
+		
+		leftBumper = xboxController.getRawButton(RobotMap.left_Bumper);
+		if(leftBumper == true){
+			return -0.5;
+		}
+		
+		return 0;
+		
 	}
 }
 
