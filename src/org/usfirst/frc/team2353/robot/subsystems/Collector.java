@@ -22,11 +22,8 @@ public class Collector extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void setCollector(boolean forwards) {
-    	if (forwards == true)
-    		collectorMotor.set(.5);
-    	else
-    		collectorMotor.set(-.5);
+    public void setCollector(double speed) {
+    	collectorMotor.set(speed);
     		
     }
 }
