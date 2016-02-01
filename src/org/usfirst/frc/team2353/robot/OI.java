@@ -19,13 +19,9 @@ public class OI {
 	private double rightSpeed;
 	
 	public OI() {
-		xboxController = new Joystick(0);
+		xboxController = new Joystick(1);
 		
-		AButton = new JoystickButton(xboxController, 0);
-		YButton = new JoystickButton(xboxController, 3);
-		
-		triggerButtonLeft = new JoystickButton(xboxController, 6);
-		triggerButtonRight = new JoystickButton(xboxController, 5);
+	
 	}
 	
 	
