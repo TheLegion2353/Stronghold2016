@@ -23,8 +23,9 @@ public class Robot extends IterativeRobot {
 	//I don't think we need to create this object as it should never need to be used here (in the commands we just use the command base to use the subsytem objects)
 	public static final Chassis chassis = new Chassis();
 	
-	public static OI oi;
 	
+	public static OI oi;
+	public static SmartDashboard smartdashboard = new SmartDashboard();
 
 	private int autoLoopCounter = 0;
 	
@@ -111,6 +112,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        log();
     }
     
     /**
@@ -120,5 +122,9 @@ public class Robot extends IterativeRobot {
         LiveWindow.run();
         
         
+    }
+    public void log() {
+    	chassis.log();
+    	
     }
 }
