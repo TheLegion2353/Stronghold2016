@@ -29,11 +29,19 @@ public class OI {
 	}
 	
 	public double getJoystickY() {
-		return joystick.getRawAxis(RobotMap.joystickYAxis);
+		double y_axis=joystick.getRawAxis(RobotMap.joystickYAxis);
+		if (y_axis<.2 && y_axis>.2)
+			y_axis=0;
+		return y_axis;	
+		
 	}
 	
 	public double getJoystickX() {
-		return joystick.getRawAxis(RobotMap.joystickXAxis);
+		double x_axis=joystick.getRawAxis(RobotMap.joystickXAxis);
+		if (x_axis<.2 && x_axis>.2)
+			x_axis=0;
+		return x_axis;	
+		
 	}
 	
 	
