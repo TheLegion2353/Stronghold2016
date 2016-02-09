@@ -32,14 +32,16 @@ public class OI {
 		double y_axis=joystick.getRawAxis(RobotMap.joystickYAxis);
 		if (y_axis<.2 && y_axis>.2)
 			y_axis=0;
+		System.out.print(y_axis);
 		return y_axis;	
 		
 	}
 	
 	public double getJoystickX() {
 		double x_axis=joystick.getRawAxis(RobotMap.joystickXAxis);
-		if (x_axis<.2 && x_axis>.2)
+		if (x_axis<.4 && x_axis>.4)
 			x_axis=0;
+		System.out.print(x_axis);
 		return x_axis;	
 		
 	}
