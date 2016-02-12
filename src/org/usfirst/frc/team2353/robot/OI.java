@@ -6,43 +6,41 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
 	
+	private Joystick joystick;
 	private Joystick xboxController;
 	
-	private Button AButton;
-	private Button YButton;
-	
-	private Button triggerButtonLeft;
-	private Button triggerButtonRight;
-	
-	//Directions
-	private double leftSpeed;
-	private double rightSpeed;
-	
+
+	private JoystickButton AButton, BButton, YButton, XButton;
 	public OI() {
-		xboxController = new Joystick(0);
 		
-		AButton = new JoystickButton(xboxController, 0);
-		YButton = new JoystickButton(xboxController, 3);
+		joystick = new Joystick(0);
+		xboxController = new Joystick(1);
 		
-		triggerButtonLeft = new JoystickButton(xboxController, 6);
-		triggerButtonRight = new JoystickButton(xboxController, 5);
+		AButton = new JoystickButton(joystick, RobotMap.AButton);
+		BButton = new JoystickButton(joystick, RobotMap.BButton);
+		YButton = new JoystickButton(joystick, RobotMap.YButton);
+		XButton = new JoystickButton(joystick, RobotMap.XButton);
+		
+		
+		
+		
+		
+		
+	}
+	
+	public double getJoystickY() {
+		return joystick.getRawAxis(RobotMap.joystickYAxis);
+	}
+	
+	public double getJoystickX() {
+		return joystick.getRawAxis(RobotMap.joystickXAxis);
 	}
 	
 	
-	public double getLeftValue() {
-		leftSpeed = xboxController.getRawAxis(1); //left analog stick Y Axis
-		if(leftSpeed > -.2 && leftSpeed < .2)
-			leftSpeed = 0;
-		
-		return leftSpeed;
-	}
 	
-	public double getRightValue() {
-		rightSpeed = xboxController.getRawAxis(5); //right analog stick Y Axis
-		if(rightSpeed > -.2 && rightSpeed < .2)
-			rightSpeed = 0;
-		
-		return rightSpeed;
-	}
+	
+	
+	
+	
 }
 
