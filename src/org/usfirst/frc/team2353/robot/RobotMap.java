@@ -26,9 +26,9 @@ public class RobotMap {
     public final static int right_Trigger=3;
    
     //Extreme 3d Pro Mappings
-    public final static int joystickXAxis=1;
-    public final static int joystickYAxis=2;
-    public final static int joystickThrottle=3;
+    public final static int joystickXAxis=0;
+    public final static int joystickYAxis=1;
+    public final static int joystickZAxis=2;
     
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
