@@ -18,20 +18,15 @@ public class OI {
 	private JoystickButton leftBumper;
 	
 	private double leftSpeed, rightSpeed;
-	//Directions
-	
-	
+
 	public OI() {
 		xboxController = new Joystick(1);
 		
 		leftBumper = new JoystickButton(xboxController, RobotMap.left_Bumper);
 		rightBumper = new JoystickButton(xboxController, RobotMap.right_Bumper);
-		leftBumper.whileHeld(new Collect());
-		rightBumper.whileHeld(new Release());
-		
-	
+		leftBumper.whileActive(new Collect());
+		rightBumper.whileActive(new Release());
 	}
-	
 	
 	public double getLeftValue() {
 		leftSpeed = xboxController.getRawAxis(1); //left analog stick Y Axis
@@ -49,20 +44,5 @@ public class OI {
 		return rightSpeed;
 	}
 	
-	/*
-	public double getBumper(){
-		rightBumper = xboxController.getRawButton(RobotMap.right_Bumper);
-		if(rightBumper == true) {
-			return 0.5;
-		}
-		
-		leftBumper = xboxController.getRawButton(RobotMap.left_Bumper);
-		if(leftBumper == true){
-			return -0.5;
-		}
-		
-		return 0;
-		
-	}*/
 }
 
