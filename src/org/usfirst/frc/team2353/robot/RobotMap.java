@@ -11,7 +11,7 @@ package org.usfirst.frc.team2353.robot;
 public class RobotMap {
    
 	//Motors
-    public final static int frontLeftNum = 2, rearLeftNum = 1, frontRightNum = 4, rearRightNum = 3;
+    public final static int rearLeftNum = 0, rearRightNum = 1;
     
     //Xbox Button mappings
     public final static int AButton = 0;
