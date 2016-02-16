@@ -17,7 +17,7 @@ public class OI {
 	private JoystickButton rightBumper;
 	private JoystickButton leftBumper;
 	
-	private double leftSpeed, rightSpeed;
+	private double leftSpeed, rightSpeed, triggerSpeed, leftTriggerSpeed, rightTriggerSpeed;
 
 	public OI() {
 		xboxController = new Joystick(1);
@@ -44,5 +44,21 @@ public class OI {
 		return rightSpeed;
 	}
 	
+	public double getTriggerValue() {
+		
+		leftTriggerSpeed = xboxController.getRawAxis(2);
+		if(leftTriggerSpeed > -.2 && leftTriggerSpeed < .2) {
+			leftTriggerSpeed = 0;
+		}
+	
+		rightTriggerSpeed = xboxController.getRawAxis(3);
+		if(rightTriggerSpeed > -.2 && rightTriggerSpeed < .2) {
+			rightTriggerSpeed = 0;
+		}
+		
+		 triggerSpeed = rightTriggerSpeed + leftTriggerSpeed;
+		
+		return triggerSpeed;
+	}
 }
 
