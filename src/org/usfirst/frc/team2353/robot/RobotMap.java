@@ -9,7 +9,9 @@ package org.usfirst.frc.team2353.robot;
 //We need to use this to map the ports so we can have easier control over them 
 
 public class RobotMap {
-   
+	//USB Ports
+	public final static int joyStickPort = 0, xboxPort = 1; 
+	
 	//Motors
     public final static int rearLeftNum = 0, rearRightNum = 1;
     

@@ -13,8 +13,8 @@ public class OI {
 	private JoystickButton AButton, BButton, YButton, XButton;
 	public OI() {
 		
-		joystick = new Joystick(0);
-		xboxController = new Joystick(1);
+		joystick = new Joystick(RobotMap.joyStickPort);
+		xboxController = new Joystick(RobotMap.xboxPort);
 		
 		AButton = new JoystickButton(joystick, RobotMap.AButton);
 		BButton = new JoystickButton(joystick, RobotMap.BButton);
