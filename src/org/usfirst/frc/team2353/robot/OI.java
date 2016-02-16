@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2353.robot;
 
 import org.usfirst.frc.team2353.robot.commands.Collect;
-import org.usfirst.frc.team2353.robot.commands.Release;
+import org.usfirst.frc.team2353.robot.commands.Shoot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -25,7 +25,7 @@ public class OI {
 		leftBumper = new JoystickButton(xboxController, RobotMap.left_Bumper);
 		rightBumper = new JoystickButton(xboxController, RobotMap.right_Bumper);
 		leftBumper.whileActive(new Collect());
-		rightBumper.whileActive(new Release());
+		rightBumper.whileActive(new Shoot());
 	}
 	
 	public double getLeftValue() {
