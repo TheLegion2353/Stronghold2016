@@ -29,18 +29,18 @@ public class OI {
 	}
 	
 	public double getJoystickY() {
-		double y_axis=joystick.getRawAxis(RobotMap.joystickYAxis);
-		if (y_axis<.2 && y_axis>.2)
-			y_axis=0;
+		double y_axis = joystick.getRawAxis(RobotMap.joystickYAxis);
+		if (y_axis>-.2 && y_axis<.2)
+			y_axis = 0;
 		//System.out.print(y_axis);
 		return y_axis;	
 		
 	}
 	
 	public double getJoystickZ() {
-		double z_axis=joystick.getRawAxis(RobotMap.joystickZAxis);
-		if (z_axis<.4 && z_axis>.4)
-			z_axis=0;
+		double z_axis = joystick.getRawAxis(RobotMap.joystickZAxis);
+		if (z_axis>-.2 && z_axis < .2)
+			z_axis = 0;
 		//System.out.print(z_axis);
 		return z_axis;	
 		
