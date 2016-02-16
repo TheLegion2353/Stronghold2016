@@ -13,8 +13,8 @@ public class OI {
 	private JoystickButton AButton, BButton, YButton, XButton;
 	public OI() {
 		
-		joystick = new Joystick(0);
-		xboxController = new Joystick(1);
+		joystick = new Joystick(RobotMap.joyStickPort);
+		xboxController = new Joystick(RobotMap.xboxPort);
 		
 		AButton = new JoystickButton(joystick, RobotMap.AButton);
 		BButton = new JoystickButton(joystick, RobotMap.BButton);
@@ -29,11 +29,21 @@ public class OI {
 	}
 	
 	public double getJoystickY() {
-		return joystick.getRawAxis(RobotMap.joystickYAxis);
+		double y_axis = joystick.getRawAxis(RobotMap.joystickYAxis);
+		if (y_axis>-.2 && y_axis<.2)
+			y_axis = 0;
+		//System.out.print(y_axis);
+		return y_axis;	
+		
 	}
 	
-	public double getJoystickX() {
-		return joystick.getRawAxis(RobotMap.joystickXAxis);
+	public double getJoystickZ() {
+		double z_axis = joystick.getRawAxis(RobotMap.joystickZAxis);
+		if (z_axis>-.2 && z_axis < .2)
+			z_axis = 0;
+		//System.out.print(z_axis);
+		return z_axis;	
+		
 	}
 	
 	
