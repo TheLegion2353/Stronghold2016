@@ -1,0 +1,51 @@
+package org.usfirst.frc.team2353.robot.subsystems;
+
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+import org.usfirst.frc.team2353.robot.RobotMap;
+import org.usfirst.frc.team2353.robot.commands.MoveWithJoystick;
+
+/**
+ *
+ */
+public class Chassis extends Subsystem {
+    
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+	//Move variables to RobotMap
+	private Victor frontLeftMotor;
+	private Victor frontRightMotor;
+	private Victor backLeftMotor;
+	private Victor backRightMotor;
+	private RobotDrive drive;
+	
+	public Chassis() {
+		frontLeftMotor=new Victor(RobotMap.frontLeftNum);
+    	frontRightMotor=new Victor(RobotMap.frontRightNum);
+    	backLeftMotor=new Victor(RobotMap.rearLeftNum);
+    	backRightMotor=new Victor(RobotMap.rearRightNum);
+    	drive=new RobotDrive(frontLeftMotor,backLeftMotor, frontRightMotor,backRightMotor);
+	}
+	
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    	
+    	setDefaultCommand(new MoveWithJoystick());
+    	
+    }
+    
+    public void tankDrive(double left, double right) {
+    	drive.tankDrive(-left,-right);
+    	
+    }
+    
+    
+    
+    
+    
+}
+
+
