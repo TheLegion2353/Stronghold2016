@@ -12,3 +12,7 @@
 hs_err_pid*
 *.class
 bin/
+build.xml
+.classpath
+.project
+sysProps.xml
