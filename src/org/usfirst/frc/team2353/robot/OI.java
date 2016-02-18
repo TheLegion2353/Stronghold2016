@@ -9,6 +9,22 @@ public class OI {
 	private Joystick joystick;
 	private Joystick xboxController;
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public final static int joystickXAxis=0;
+    public final static int joystickYAxis=1;
+    public final static int joystickZAxis=2;
 
 	private JoystickButton AButton, BButton, YButton, XButton;
 	public OI() {
@@ -16,10 +32,6 @@ public class OI {
 		joystick = new Joystick(RobotMap.joyStickPort);
 		xboxController = new Joystick(RobotMap.xboxPort);
 		
-		AButton = new JoystickButton(joystick, RobotMap.AButton);
-		BButton = new JoystickButton(joystick, RobotMap.BButton);
-		YButton = new JoystickButton(joystick, RobotMap.YButton);
-		XButton = new JoystickButton(joystick, RobotMap.XButton);
 		
 		
 		
@@ -29,7 +41,7 @@ public class OI {
 	}
 	
 	public double getJoystickY() {
-		double y_axis = joystick.getRawAxis(RobotMap.joystickYAxis);
+		double y_axis = joystick.getRawAxis(joystickYAxis);
 		if (y_axis>-.2 && y_axis<.2)
 			y_axis = 0;
 		//System.out.print(y_axis);
@@ -38,7 +50,7 @@ public class OI {
 	}
 	
 	public double getJoystickZ() {
-		double z_axis = joystick.getRawAxis(RobotMap.joystickZAxis);
+		double z_axis = joystick.getRawAxis(joystickZAxis);
 		if (z_axis>-.2 && z_axis < .2)
 			z_axis = 0;
 		//System.out.print(z_axis);
