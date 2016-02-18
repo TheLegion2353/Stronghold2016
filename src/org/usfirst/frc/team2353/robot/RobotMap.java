@@ -12,24 +12,9 @@ public class RobotMap {
    
     public static int rearLeftNum = 0, rearRightNum = 1;
     public static int collectorMotor=4;
-
-    //Xbox Button mappings
-    public final static int AButton = 0;
-    public final static int BButton = 1;
-    public final static int YButton = 3;
-    public final static int XButton = 2;
-    public final static int left_Bumper=4;
-    public final static int right_Bumper=5;
-    public final static int select_Button=6;
-    public final static int start_Button=7;
-    public final static int left_Trigger=2;
-    public final static int right_Trigger=3;
-   
-    //Extreme 3d Pro Mappings
-    public final static int joystickXAxis=1;
-    public final static int joystickYAxis=2;
-    public final static int joystickThrottle=3;		
-    
+    public final static int joystickPort = 0;
+    public final static int xboxPort=1;
+  
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
     // public static int rangefinderPort = 1;
