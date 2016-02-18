@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Collect extends Command {
+public class RunCollectorManual extends Command {
 
-    public Collect() {
+    public RunCollectorManual() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }

@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2353.robot;
 
-import org.usfirst.frc.team2353.robot.commands.Collect;
+import org.usfirst.frc.team2353.robot.commands.RunCollectorManual;
 import org.usfirst.frc.team2353.robot.commands.Shoot;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
 	
+	private Joystick joystick;
 	private Joystick xboxController;
 	
 	private Button AButton;
@@ -31,31 +32,39 @@ public class OI {
     //Extreme 3d Pro Mappings
     private final static int joystickXAxis=0;
     private final static int joystickYAxis=1;
-    private final static int joystickThrottle=2;		
+    private final static int joystickZAxis=2;		
     
 	
 	private double leftSpeed, rightSpeed, triggerSpeed, leftTriggerSpeed, rightTriggerSpeed;
 
 	public OI() {
-		xboxController = new Joystick(1);
+		joystick = new Joystick(RobotMap.joystickPort);
+		xboxController = new Joystick(RobotMap.xboxPort);
+		
+		AButton = new JoystickButton(joystick, AButtonNum);
+		
+		YButton = new JoystickButton(joystick, YButtonNum);
+		
 		
 		
 	}
 	
+	public double getJoystickY() {
+		double y_axis = joystick.getRawAxis(joystickYAxis);
+		if (y_axis>-.2 && y_axis<.2)
+			y_axis = 0;
+		//System.out.print(y_axis);
+		return y_axis;	
+		
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public double getJoystickZ() {
+		double z_axis = joystick.getRawAxis(joystickZAxis);
+		if (z_axis>-.2 && z_axis < .2)
+			z_axis = 0;
+		//System.out.print(z_axis);
+		return z_axis;	
+	}	
 	
 	
 	
