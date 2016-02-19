@@ -1,7 +1,8 @@
 package org.usfirst.frc.team2353.robot.subsystems;
 
+import org.usfirst.frc.team2353.robot.Robot;
 import org.usfirst.frc.team2353.robot.RobotMap;
-import org.usfirst.frc.team2353.robot.commands.ArmMovement;
+import org.usfirst.frc.team2353.robot.commands.RunArmManual;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -26,7 +27,7 @@ public class Arm extends Subsystem {
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new ArmMovement());
+        setDefaultCommand(new RunArmManual());
         
     }
     

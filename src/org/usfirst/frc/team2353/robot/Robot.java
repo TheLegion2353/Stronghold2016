@@ -7,7 +7,11 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
+import org.usfirst.frc.team2353.robot.subsystems.Arm;
 import org.usfirst.frc.team2353.robot.subsystems.Chassis;
+import org.usfirst.frc.team2353.robot.subsystems.Collector;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -18,15 +22,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
 
-	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	//I don't think we need to create this object as it should never need to be used here (in the commands we just use the command base to use the subsytem objects)
+public class Robot extends IterativeRobot {
 	public static final Chassis chassis = new Chassis();
 	
 	public static OI oi;
+	public static Arm arm;
+	public static Collector collector;
 	
-
 	private int autoLoopCounter = 0;
 	
     Command autonomousCommand;

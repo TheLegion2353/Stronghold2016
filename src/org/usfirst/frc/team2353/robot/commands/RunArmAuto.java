@@ -7,12 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArmMovement extends Command {
+public class RunArmAuto extends Command {
 
-    public ArmMovement() {
+	private String direction;
+	
+    public RunArmAuto(String direction) {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	requires(Robot.arm);
+    	this.direction = direction;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +23,10 @@ public class ArmMovement extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arm.moveArm(Robot.oi.getLeftYAxis()*.5);
+    	if(direction.equalsIgnoreCase("DOWN"))
+    		Robot.arm.moveArm(-.3);
+    	else
+    		Robot.arm.moveArm(.3);
     }
 
     // Make this return true when this Command no longer needs to run execute()
