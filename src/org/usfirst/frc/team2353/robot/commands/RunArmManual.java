@@ -21,7 +21,7 @@ public class RunArmManual extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arm.moveArm(Robot.oi.getXboxLeftYAxis()*.5);
+    	Robot.arm.moveArm(Robot.oi.getXboxLeftYAxis()*.8);
     }
 
     // Make this return true when this Command no longer needs to run execute()
