@@ -8,6 +8,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team2353.robot.commands.AutonomousBreach;
+import org.usfirst.frc.team2353.robot.commands.AutonomousLowBar;
+import org.usfirst.frc.team2353.robot.commands.AutonomousLowGoal;
+import org.usfirst.frc.team2353.robot.commands.GoToLowGoal;
 import org.usfirst.frc.team2353.robot.subsystems.Arm;
 import org.usfirst.frc.team2353.robot.subsystems.Chassis;
 import org.usfirst.frc.team2353.robot.subsystems.Collector;
@@ -25,7 +29,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
 	public static Chassis chassis;
-	
+
 	public static OI oi;
 	public static Arm arm;
 	public static Collector collector;
@@ -33,7 +37,7 @@ public class Robot extends IterativeRobot {
 	private int autoLoopCounter = 0;
 	
     Command autonomousCommand;
-    SendableChooser chooser;
+    SendableChooser obstacleChooser, positionChooser, modeChooser;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -50,6 +54,25 @@ public class Robot extends IterativeRobot {
 //        chooser.addObject("My Auto", new MyAutoCommand());
         
         CameraServer.getInstance().startAutomaticCapture("cam0");
+        
+        obstacleChooser.addDefault("Rough Terrain", new Obstacle(.5,2,"Rocky Terrain"));
+        obstacleChooser.addObject("Moat", new Obstacle(.5,2,"Moat"));
+        obstacleChooser.addObject("Rock Wall", new Obstacle(.5,2,"Rock Wall"));
+        obstacleChooser.addObject("Port-I-cullis",new Obstacle(.5,2,"Port-I-cullis") );
+        SmartDashboard.putData("Obstacle: ", obstacleChooser);
+        
+        modeChooser.addDefault("Breach", new AutonomousBreach());
+        modeChooser.addObject("Score Low Goal",new AutonomousLowGoal());
+        modeChooser.addObject("Score Low Bar", new AutonomousLowBar());
+        SmartDashboard.putData("Action: ", modeChooser);
+        
+        positionChooser.addDefault("Left", new GoToLowGoal("Left"));
+        positionChooser.addObject("Left Center",new GoToLowGoal("Left Center"));
+        positionChooser.addObject("Right Center",new GoToLowGoal("Right Center"));
+        positionChooser.addObject("Right", new  GoToLowGoal("Right"));
+        SmartDashboard.putData("Position: ",positionChooser);
+        
+        
     }
 	
 	/**
