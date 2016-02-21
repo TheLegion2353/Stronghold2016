@@ -8,6 +8,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team2353.robot.commands.AutonomousBreach;
+import org.usfirst.frc.team2353.robot.commands.AutonomousLowBar;
+import org.usfirst.frc.team2353.robot.commands.AutonomousLowGoal;
+import org.usfirst.frc.team2353.robot.commands.GoToLowGoal;
 import org.usfirst.frc.team2353.robot.subsystems.Arm;
 import org.usfirst.frc.team2353.robot.subsystems.Chassis;
 import org.usfirst.frc.team2353.robot.subsystems.Collector;
@@ -25,7 +29,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
 	public static Chassis chassis;
-	
+
 	public static OI oi;
 	public static Arm arm;
 	public static Collector collector;
@@ -33,7 +37,7 @@ public class Robot extends IterativeRobot {
 	private int autoLoopCounter = 0;
 	
     Command autonomousCommand;
-    SendableChooser chooser;
+    SendableChooser obstacleChooser, positionChooser, modeChooser;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -46,10 +50,28 @@ public class Robot extends IterativeRobot {
     	oi = new OI();
 		
         
-        //chooser.addDefault("Default Auto", new ExampleCommand());
-//        chooser.addObject("My Auto", new MyAutoCommand());
+
         
         CameraServer.getInstance().startAutomaticCapture("cam0");
+        
+        obstacleChooser.addDefault("Rough Terrain", "rockyTerrain");
+        obstacleChooser.addObject("Moat","Moat");
+        obstacleChooser.addObject("Rock Wall","rockWall");
+        obstacleChooser.addObject("Port-I-cullis","portCulllis");
+        obstacleChooser.addObject("Low Bar", "lowBar");
+        SmartDashboard.putData("Obstacle: ", obstacleChooser);
+        
+        modeChooser.addDefault("Breach", "Breach");
+        modeChooser.addObject("Score Low Goal","score");
+        SmartDashboard.putData("Action: ", modeChooser);
+        
+        positionChooser.addDefault("Left", "Left");
+        positionChooser.addObject("Left Center","leftCenter");
+        positionChooser.addObject("Right Center","rightCenter");
+        positionChooser.addObject("Right","right");
+        SmartDashboard.putData("Position: ",positionChooser);
+        
+        
     }
 	
 	/**
@@ -75,8 +97,18 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        //autonomousCommand = (Command) chooser.getSelected();
-        
+        String position = (String) positionChooser.getSelected();
+        String mode = (String) modeChooser.getSelected();
+        String obstacle = (String) obstacleChooser.getSelected();
+        Command autonomousCommand;
+        if (obstacle == "lowBar")	
+        	autonomousCommand = new AutonomousLowBar();
+        else if (mode == "breach")
+        	autonomousCommand = new AutonomousBreach(obstacle);
+        else  
+        	autonomousCommand = new AutonomousLowGoal(obstacle, position);
+        	
+        		
 		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
 		switch(autoSelected) {
 		case "My Auto":
@@ -91,7 +123,7 @@ public class Robot extends IterativeRobot {
     	// schedule the autonomous command (example)
         //if (autonomousCommand != null) autonomousCommand.start();
     	
-    	autoLoopCounter = 0;
+    	autonomousCommand.start();
     }
 
     /**
@@ -100,11 +132,7 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         //Scheduler.getInstance().run();
     	
-    	if(autoLoopCounter < 100){
-    		//Command for drive with some speed value
-    	}else{
-    		//Command for drive with 0 speed
-    	}
+    	
     }
 
     public void teleopInit() {
