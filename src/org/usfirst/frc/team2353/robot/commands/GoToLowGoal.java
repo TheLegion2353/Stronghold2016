@@ -10,7 +10,7 @@ public class GoToLowGoal extends CommandGroup {
     public  GoToLowGoal(String position) {
         
     	switch (position) {
-    	case "Left Cemter":
+    	case "Left Center":
     		break;
     	case "Left":
     		break;

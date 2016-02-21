@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2353.robot.commands;
 
+import org.usfirst.frc.team2353.robot.Obstacle;
+
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
@@ -9,10 +11,27 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
  */
 public class AutonomousBreach extends CommandGroup {
     
-    public  AutonomousBreach() {
+    public  AutonomousBreach(String obstacle) {
         
-    	addSequential(new TimedDrive(.5,4,0));
-    	addSequential(new TimedDrive(.3,10,0));
+    	if (obstacle == "Rocky Terrain") {
+    		addParallel(new RunArmAuto("UP"));
+    		addSequential(new TimedDrive());
+    	} 
+    	
+    	else if (obstacle == "Rock Wall") {
+    		addParallel(new RunArmAuto("UP"));
+    		addSequential(new TimedDrive());
+    	}
+    	
+    	else if (obstacle == "Moat") {
+    		addParallel(new RunArmAuto("UP"));
+    		addSequential(new TimedDrive());
+    	}
+    	
+    	else if (obstacle == "Portcullis") {
+    		
+    	}
+    	
     	//addSequential(new WaitCommand(3));
     }
 }
