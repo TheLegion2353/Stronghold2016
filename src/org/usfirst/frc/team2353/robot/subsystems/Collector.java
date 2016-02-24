@@ -5,13 +5,7 @@ import org.usfirst.frc.team2353.robot.commands.RunCollectorManual;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
 public class Collector extends Subsystem {
-    
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
 	private Victor collectorMotor;
 	
 	public Collector() {

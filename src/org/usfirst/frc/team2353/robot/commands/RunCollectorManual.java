@@ -10,8 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class RunCollectorManual extends Command {
 
     public RunCollectorManual() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    
     	requires(Robot.collector);
     }
 

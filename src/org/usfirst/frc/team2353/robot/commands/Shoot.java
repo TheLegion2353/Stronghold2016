@@ -4,17 +4,12 @@ import org.usfirst.frc.team2353.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
-public class RunArmAuto extends Command {
+public class Shoot extends Command {
 
-	private String direction;
-	
-    public RunArmAuto(String direction) {
+    public Shoot() {
         // Use requires() here to declare subsystem dependencies
-    	requires(Robot.arm);
-    	this.direction = direction;
+        // eg. requires(chassis);
+    	requires(Robot.collector);
     }
 
     // Called just before this Command runs the first time
@@ -23,10 +18,7 @@ public class RunArmAuto extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(direction.equalsIgnoreCase("DOWN"))
-    		Robot.arm.moveArm(-.3);
-    	else
-    		Robot.arm.moveArm(.3);
+    	Robot.collector.setCollector(.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()

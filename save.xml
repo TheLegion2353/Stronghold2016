@@ -1,7 +1,16 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Position: " type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="410" y="21"/>
+	</widget>
+	<widget field="Action: " type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="195" y="11"/>
+	</widget>
+	<widget field="Obstacle: " type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="21" y="0"/>
+	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.WebcamViewerExtension">
-		<location x="-189" y="29"/>
+		<location x="559" y="4"/>
 		<width>1435</width>
 		<height>662</height>
 	</static-widget>

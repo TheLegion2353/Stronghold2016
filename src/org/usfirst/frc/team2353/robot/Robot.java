@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2353.robot.commands.AutonomousBreach;
 import org.usfirst.frc.team2353.robot.commands.AutonomousLowBar;
 import org.usfirst.frc.team2353.robot.commands.AutonomousLowGoal;
-import org.usfirst.frc.team2353.robot.commands.GoToLowGoal;
+import org.usfirst.frc.team2353.robot.commands.DriveForward;
 import org.usfirst.frc.team2353.robot.subsystems.Arm;
 import org.usfirst.frc.team2353.robot.subsystems.Chassis;
 import org.usfirst.frc.team2353.robot.subsystems.Collector;
@@ -34,7 +34,7 @@ public class Robot extends IterativeRobot {
 	public static Arm arm;
 	public static Collector collector;
 	
-	private int autoLoopCounter = 0;
+
 	
     Command autonomousCommand;
     SendableChooser obstacleChooser, positionChooser, modeChooser;
@@ -49,26 +49,28 @@ public class Robot extends IterativeRobot {
 		collector = new Collector();
     	oi = new OI();
 		
+    	CameraServer.getInstance().startAutomaticCapture("cam0");
+    	
+        obstacleChooser = new SendableChooser();
+        positionChooser = new SendableChooser();
+        modeChooser = new SendableChooser();
         
-
-        
-        CameraServer.getInstance().startAutomaticCapture("cam0");
-        
-        obstacleChooser.addDefault("Rough Terrain", "rockyTerrain");
+        obstacleChooser.addDefault("Rough Terrain", "Rough Terrain");
         obstacleChooser.addObject("Moat","Moat");
-        obstacleChooser.addObject("Rock Wall","rockWall");
-        obstacleChooser.addObject("Port-I-cullis","portCulllis");
+        obstacleChooser.addObject("Rock Wall","Rock Wall");
+        obstacleChooser.addObject("Port-I-cullis","Porculllis");
         obstacleChooser.addObject("Low Bar", "lowBar");
         SmartDashboard.putData("Obstacle: ", obstacleChooser);
         
         modeChooser.addDefault("Breach", "Breach");
+        modeChooser.addObject("Drive to Obstacle", "Drive forward");
         modeChooser.addObject("Score Low Goal","score");
         SmartDashboard.putData("Action: ", modeChooser);
         
         positionChooser.addDefault("Left", "Left");
-        positionChooser.addObject("Left Center","leftCenter");
-        positionChooser.addObject("Right Center","rightCenter");
-        positionChooser.addObject("Right","right");
+        positionChooser.addObject("Left Center","Left Center");
+        positionChooser.addObject("Right Center","Right Center");
+        positionChooser.addObject("Right","Right");
         SmartDashboard.putData("Position: ",positionChooser);
         
         
@@ -97,31 +99,21 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-        String position = (String) positionChooser.getSelected();
+        
+    	String position = (String) positionChooser.getSelected();
         String mode = (String) modeChooser.getSelected();
         String obstacle = (String) obstacleChooser.getSelected();
+       
         Command autonomousCommand;
+        
         if (obstacle == "lowBar")	
         	autonomousCommand = new AutonomousLowBar();
-        else if (mode == "breach")
+        else if (mode == "Drive forward") 
+        	autonomousCommand = new DriveForward();
+        else if (mode == "Breach")
         	autonomousCommand = new AutonomousBreach(obstacle);
         else  
         	autonomousCommand = new AutonomousLowGoal(obstacle, position);
-        	
-        		
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
-			break;
-		case "Default Auto":
-		default:
-			autonomousCommand = new ExampleCommand();
-			break;
-		} */
-    	
-    	// schedule the autonomous command (example)
-        //if (autonomousCommand != null) autonomousCommand.start();
     	
     	autonomousCommand.start();
     }
@@ -130,8 +122,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        //Scheduler.getInstance().run();
-    	
+        Scheduler.getInstance().run();
     	
     }
 
@@ -155,7 +146,5 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
-        
-        
     }
 }

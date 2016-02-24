@@ -4,9 +4,6 @@ import org.usfirst.frc.team2353.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class DriveArcade extends Command {
 
 	//Here we should have it require drive because this class extends commandBase where we initialized the chassis subsystem right?

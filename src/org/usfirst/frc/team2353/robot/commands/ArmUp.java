@@ -1,30 +1,26 @@
-
 package org.usfirst.frc.team2353.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team2353.robot.Robot;
+import org.usfirst.frc.team2353.robot.subsystems.Arm;
 
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Drive extends Command {
+public class ArmUp extends Command {
 
-	
-    public Drive () {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.chassis);
-        
+    public ArmUp() {
+        requires(Robot.arm);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.chassis.arcadeDrive(.5,0);
+    	Robot.arm.moveArm(.8);
     }
 
     // Make this return true when this Command no longer needs to run execute()

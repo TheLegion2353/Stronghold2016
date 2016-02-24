@@ -7,9 +7,6 @@ import org.usfirst.frc.team2353.robot.commands.RunArmManual;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
 public class Arm extends Subsystem {
     
     // Put methods for controlling this subsystem

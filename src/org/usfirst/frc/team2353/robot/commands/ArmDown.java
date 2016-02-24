@@ -7,13 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class RunCollectorAuto extends Command {
-	
-	
-    public RunCollectorAuto() {
+public class ArmDown extends Command {
+
+    public ArmDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.collector);
+    	requires(Robot.arm);
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +21,7 @@ public class RunCollectorAuto extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.collector.setCollector(.5);
+    	Robot.arm.moveArm(-.8);
     }
 
     // Make this return true when this Command no longer needs to run execute()

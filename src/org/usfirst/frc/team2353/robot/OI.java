@@ -35,6 +35,7 @@ public class OI {
 	
 
 	private JoystickButton AButton, BButton, YButton, XButton;
+	
 	public OI() {
 		
 		joystick = new Joystick(RobotMap.joyStickPort);
