@@ -12,6 +12,7 @@ import org.usfirst.frc.team2353.robot.commands.AutonomousBreach;
 import org.usfirst.frc.team2353.robot.commands.AutonomousLowBar;
 import org.usfirst.frc.team2353.robot.commands.AutonomousLowGoal;
 import org.usfirst.frc.team2353.robot.commands.DriveForward;
+import org.usfirst.frc.team2353.robot.commands.TimedDrive;
 import org.usfirst.frc.team2353.robot.subsystems.Arm;
 import org.usfirst.frc.team2353.robot.subsystems.Chassis;
 import org.usfirst.frc.team2353.robot.subsystems.Collector;
@@ -72,8 +73,21 @@ public class Robot extends IterativeRobot {
         positionChooser.addObject("Right Center","Right Center");
         positionChooser.addObject("Right","Right");
         SmartDashboard.putData("Position: ",positionChooser);
-        
-        
+       
+        SmartDashboard.putNumber("First Timed Drive Speed",0);
+        SmartDashboard.putNumber("First Timed Drive Time",1);
+        SmartDashboard.putNumber("First Timed Drive Curve", 2);
+       
+        /*SmartDashboard.putNumber("Second Timed Drive Speed",3);
+        SmartDashboard.putNumber("Second Timed Drive Time",4);
+        SmartDashboard.putNumber("Second Timed Drive Curve", 5);
+        SmartDashboard.putNumber("Third Timed Drive Speed",6);
+        SmartDashboard.putNumber("Third Timed Drive Time",7);
+        SmartDashboard.putNumber("Third  Timed Drive Curve",8);
+        SmartDashboard.putNumber("Fourth Timed Drive Speed",9);
+        SmartDashboard.putNumber("Foruth Timed Drive Time",10);
+        SmartDashboard.putNumber("Fourth Timed Drive Curve", 11);
+        */
     }
 	
 	/**
@@ -146,5 +160,11 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+        double speed = SmartDashboard.getNumber("First Timed Drive Speed");
+        double curve = SmartDashboard.getNumber("First Timed Drive Curve");
+        double time = SmartDashboard.getNumber("First Timed Drive Time");
+        
+        Command testCommand = new TimedDrive(speed, time, curve);
+        testCommand.start();
     }
 }
