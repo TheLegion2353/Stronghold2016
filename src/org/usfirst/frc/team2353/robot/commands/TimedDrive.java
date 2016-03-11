@@ -17,7 +17,7 @@ public class TimedDrive extends Command {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.chassis);
         setTimeout(time);
-        this.speed=speed;
+        this.speed=-speed;
         this.curve = curve;
     }
 

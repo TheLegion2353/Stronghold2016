@@ -6,7 +6,7 @@ public class AutonomousLowBar extends CommandGroup {
     
     public  AutonomousLowBar() {
     	
-    	addParallel(new ArmDown());
+    	addParallel(new ArmDown(),2);
     	addSequential(new DriveForward());
     	addSequential(new TimedDrive(.4,4,0));
     	

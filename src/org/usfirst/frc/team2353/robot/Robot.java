@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2353.robot.commands.AutonomousBreach;
 import org.usfirst.frc.team2353.robot.commands.AutonomousLowBar;
 import org.usfirst.frc.team2353.robot.commands.AutonomousLowGoal;
+import org.usfirst.frc.team2353.robot.commands.DoNothing;
 import org.usfirst.frc.team2353.robot.commands.DriveForward;
 import org.usfirst.frc.team2353.robot.commands.TimedDrive;
 import org.usfirst.frc.team2353.robot.subsystems.Arm;
@@ -60,11 +61,12 @@ public class Robot extends IterativeRobot {
         obstacleChooser.addObject("Moat","Moat");
         obstacleChooser.addObject("Rock Wall","Rock Wall");
         obstacleChooser.addObject("Port-I-cullis","Porculllis");
-        obstacleChooser.addObject("Low Bar", "lowBar");
         SmartDashboard.putData("Obstacle: ", obstacleChooser);
         
         modeChooser.addDefault("Breach", "Breach");
+        modeChooser.addObject("Do Nothing", "DoNothing");
         modeChooser.addObject("Drive to Obstacle", "Drive forward");
+        modeChooser.addObject("Low Bar", "lowBar");
         modeChooser.addObject("Score Low Goal","score");
         SmartDashboard.putData("Action: ", modeChooser);
         
@@ -119,11 +121,12 @@ public class Robot extends IterativeRobot {
         String obstacle = (String) obstacleChooser.getSelected();
        
         Command autonomousCommand;
-        
-        if (obstacle == "lowBar")	
-        	autonomousCommand = new AutonomousLowBar();
+        if (mode == "DoNothing")
+        	autonomousCommand = new DoNothing();
         else if (mode == "Drive forward") 
         	autonomousCommand = new DriveForward();
+        else if (mode == "lowBar")	
+        	autonomousCommand = new AutonomousLowBar();
         else if (mode == "Breach")
         	autonomousCommand = new AutonomousBreach(obstacle);
         else  
@@ -166,5 +169,6 @@ public class Robot extends IterativeRobot {
         
         Command testCommand = new TimedDrive(speed, time, curve);
         testCommand.start();
+        
     }
 }
